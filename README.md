@@ -392,3 +392,190 @@ Esta orden se
 [y2k@anaconda ~]$ chmod
 
 ```
+
+
+### Sintaxis: `umask`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ umask
+
+```
+
+
+### Sintaxis: `which`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ which
+
+```
+
+
+### Sintaxis: `whereis`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ whereis
+
+```
+
+
+### Sintaxis: `id`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ id
+
+```
+
+
+### Sintaxis: `su`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ su
+
+```
+
+
+### Sintaxis: `newgrp`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ newgrp
+
+```
+
+
+### Sintaxis: `mdir`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mdir
+
+```
+
+
+### Sintaxis: `mattrib`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mattrib
+
+```
+
+
+### Sintaxis: `mmf`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mmd
+
+```
+
+
+### Sintaxis: `mcopy`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mcopy
+
+```
+
+
+### Sintaxis: `mmove`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mmove
+
+```
+
+
+### Sintaxis: `mrd`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mrd
+
+```
+
+
+### Sintaxis: `mcd`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mcd
+
+```
+
+
+### Sintaxis: `mdel`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mdel
+
+```
+
+
+### Sintaxis: `mformat`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mformat
+
+```
+
+
+### Sintaxis: `mren`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mren
+
+```
+
+
+### Sintaxis: `mtype`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mtype
+
+```
