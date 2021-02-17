@@ -78,7 +78,7 @@ EOT
 
 ### Sintaxis: `write usuario`
 
-<p>La orden o comando ` write ` 
+<p>La orden o comando `write usuario`
 <br/>
 Se utiliza para comunicarnos con otros usuarios que estén en ese momento conectados a nuestro mismo sistema.<br/>
 (write) NO funciona para usuarios en sistemas diferentes.<br/> 
