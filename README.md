@@ -20,9 +20,7 @@ root@anaconda:~ #
 
 ### Sintaxis: `who (am i)`
 
-La orden o comando `who` 
-<br/>
-Nos informa acerca de quién o quiénes están conectados actualmente al sistema. También muestra información,<br/>
+La orden o comando `who` Nos informa acerca de quién o quiénes están conectados actualmente al sistema. También muestra información,<br/>
 en la segunda columna, relativa al terminal asociado a cada usuario, y por último, en la columna tercera, la fecha y hora en la que el usuario entró en sesión.
 
 
@@ -92,5 +90,23 @@ El usuario: `luis` envio un mensaje al usuario `y2k` En tiempo real. Ahora veamo
 [y2k@anaconda ~]$ ~
 Message from y2k@anaconda on pts/1 at 13:50 ...
 Hola y2k, soy Luis! :)
+```
+
+
+
+### Sintaxis: `mesg [y/n]`
+
+Esta orden se utiliza para modificar los derechos de escritura por parte de los otros usuarios en nuestro terminal.<br/>
+De tal manera que si alguien nos quiere enviar un mensaje tenemos desactivados estos derechos, no seremos interrunpidos.<br/>
+La prohibición de acceso de escritura no afecta al administrador del sistema. `root` .
+
+
+```
+[y2k@anaconda ~]$ mesg
+is y
+[y2k@anaconda ~]$ mesg n
+[y2k@anaconda ~]$ mesg
+is n
+[y2k@anaconda ~]$
 ```
 
