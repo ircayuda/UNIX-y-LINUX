@@ -303,50 +303,106 @@ do lu ma mi ju vi sá
 
 ```
 
-### Sintaxis: `uname`
+### Sintaxis: `uname [ -amnrsv ]`
 
-Esta orden se 
+La orden `uname` se utiliza para obtener información acerca de nuestro sistema UNIX.<br/>
+Con ella podemos saber el tipo de máquina que estamos utilizando, la versión del sistema operativo, el tipo de procesador<br/>
+etc. Las opciones más comunes son las siguientes:<br/>
+
+* `-a` Visualiza todo acerca de la máquina que estamos utilizando. Es equivalente a todas las opciones que se muestran a continuación.
+* `-m` Tipo de hardware utilizado.
+* `-n` Nombre de nodo 
+* `-r` Actualización del sistema operativo.
+* `-s` Nombre del sistema.
+* `-v` Versión del sistema operativo. 
+
 
 
 ```
-[y2k@anaconda ~]$ uname
+[y2k@anaconda ~]$ uname -a
+FreeBSD anaconda 12.2-STABLE FreeBSD 12.2-STABLE r369150 GENERIC  amd64
+[y2k@anaconda ~]$ uname -m
+amd64
+[y2k@anaconda ~]$ uname -n
+anaconda
+[y2k@anaconda ~]$ uname -r
+12.2-STABLE
+[y2k@anaconda ~]$ uname -s
+FreeBSD
+[y2k@anaconda ~]$ uname -v
+FreeBSD 12.2-STABLE r369150 GENERIC 
+[y2k@anaconda ~]$
 
 ```
 
+### Sintaxis: `passwd [usuario]`
 
-
-
-### Sintaxis: `password`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ password
-
-```
-
-
-
-### Sintaxis: `lpr`
-
-Esta orden se 
+La orden `passwd` se utiliza para modificar nuestra clave de acceso.<br/>
+El cambio de palabra clave debe hacerse con frecuencia por razones de seguridad.<br/>
+Cuando solicitamos un cambio de clave, `passwd` nos pide siempre nuestra antigua clave de acceso.<br/>
+El sistema realiza esta operación de esta forma para comprobar nuestra identidad.<br/>
+De esta forma evita que alguien pueda cambiar nuestra contraseña si abandonamos temporalmente el termina.<br/>
+De la unica forma que no pide la clave antigua es que el comando sea ejecutado como `root`.
 
 
 ```
-[y2k@anaconda ~]$ lpr
+[y2k@anaconda ~]$ passwd
+Changing local password for y2k
+Old Password:
+New Password:
+Retype New Password:
+[y2k@anaconda ~]$
+
+```
+Cuado entramos nuestra clave, no mostrará ninguna  información, pero si se esta escribiendo en el sistema.
+
+
+### Sintaxis: `lpr [-m] [-h] [-#n] archivo(s)`
+
+La orden `lpr` permite enviar archivos a la impresora que haya por defecto para que sean impresos.<br/>
+Estos archivos se colocarán en cola de impresión en el orden en que se los pasemos.<br/>
+La cola de impresión es una cola que mantiene UNIX, y en ella figuran todos los archivos que deben ser impresos.
+
+Las opciones más comunes de `lpr` son:
+
+ * `-m` (mail) Con esta opción, cuando se termina de imprimir el trabajo. lpr envia correo avisándo que podemos ir a recoger el trabajo. 
+ * `-h` Se utiliza para eliminar la cabecera del trabajo que se envia por defecto.
+ * `-#n` Sirve para indicar el número de copias que queremos hacer. 
+
+
+```
+[y2k@anaconda ~/EJ]$ lpr archivo.txt
+[y2k@anaconda ~/EJ]$ 
 
 ```
 
-
-
-### Sintaxis: `lp`
-
-Esta orden se 
+Si quieres imprimir diferentes copias del mismo archivo tienes que indicarle a lpr las copias que quieres imprimir.
 
 
 ```
-[y2k@anaconda ~]$ lp
+[y2k@anaconda ~/EJ]$ lpr -#3 archivo.txt
+[y2k@anaconda ~/EJ]$ 
+
+```
+
+Este comando le indica a `lpr` que queremos imprimir 3 copias de el `archivo.txt`
+
+
+### Sintaxis: `lp [-c] [-m] [-w] [-n] archivo(s)`
+
+La orden `lp` sirve para lo mismo que la orden `lpr`, pero utilizaremos `lp` si nuestro sistema de impresión instalado es el de UNIX SYSTEM V.<br/>
+y `lpr` Si es el de Barkeley.
+
+Las opciones más comunes de `lp` son:
+
+ * `-c` (copy) Con esta opción, `lp` hace una copia propia del archivo que queremos imprimir, de esta manera podemos modificarlo aunque se esé imprimirndo.
+ * `-m` (mail) Con esta opción, cuando se termina de imprimir el trabajo envia un correo avisándonos que podemos ir a recoger el trabajo impreso.
+ * `-w` (write) Esta opción es similar a la opción `-m` pero en este caso informa del final de impresión usando write en vez de mail.
+ * `-n` Sirve para indicar el número de copias que queremos realizar.
+ 
+```
+[y2k@anaconda ~/EJ]$ lp -n3 archivo.txt
+[y2k@anaconda ~/EJ]$ 
 
 ```
 
