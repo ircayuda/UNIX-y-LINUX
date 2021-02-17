@@ -71,3 +71,26 @@ Hola, Este es un mensaje Test.
 EOT
 [luis@anaconda ~]$
 ```
+
+### Sintaxis: write usuario
+<p>La orden o comando <strong>write</strong> Se utiliza para comunicarnos con otros usuarios que estén en ese momento conectados a nuestro mismo sistema.<br/>
+(write) NO funciona para usuarios en sistemas diferentes. En este EJ. tenemos usuario: luis \ usuario: y2k<br/>
+El usuario: luis, escribira al usuario y2k. Para que vea el mensaje en el terminal.
+</p>
+
+```
+[luis@anaconda ~]$ write y2k 
+Hola y2k, soy Luis! :)
+```
+
+<p>
+El usuario: LUIS, envio un mensaje al usuario Y2K. En tiempo real. Ahora veamos como veria el usuario. y2k. el mensaje.
+</p>
+
+
+```
+[y2k@anaconda ~]$ ~
+Message from y2k@anaconda on pts/1 at 13:50 ...
+Hola y2k, soy Luis! :)
+```
+
