@@ -22,6 +22,7 @@ root@anaconda:~ #
 <p>La orden o comando <strong>who</strong> nos informa acerca de quién o quiénes están conectados actualmente al sistema. También muestra información,<br/>
 en la segunda columna, relativa al terminal asociado a cada usuario, y por último, en la columna tercera, la fecha y hora en la que el usuario entró en sesión.
 </p>
+
 ```
 root@anaconda:~ # who
 y2k              pts/2        Feb 17 13:27 (192.168.1.200)
