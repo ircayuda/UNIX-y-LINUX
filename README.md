@@ -824,15 +824,26 @@ La orden `od` acepta diversas opciones, las  mas comunes son:
  
 
 
-### Sintaxis: `cp`
+### Sintaxis: `cp archivo(s) destino`
 
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ cp
+La orden `cp` se utiliza para copiar archivos de un lugar a otro en el árbol de directorios.<br/>
+Como mínimo , `cp` necesita dos argumentos, el primero es el archivo existente que queremos copiar en otro lugar.<br/>
+El segundo es el nombre de destino.
 
 ```
+y2k@anaconda ~/EJ]$ cp prog.c /home/y2k/EJ/y2kfiles/
+[y2k@anaconda ~]$
+
+```
+Como podemos ver, copiamos el archivo `prog.c` en el directorio `/home/y2k/EJ/y2kfiles/`<br/>
+Utilizaremos `ls` para ver que el archivo esta copiado en la ruta indicada.
+
+```
+[y2k@anaconda ~/EJ]$ ls /home/y2k/EJ/y2kfiles/
+prog.c
+[y2k@anaconda ~/EJ]$
+```
+Vemos como el archivo se a copiado correctamente en el directorio indicado.
 
 
 ### Sintaxis: `mv`
