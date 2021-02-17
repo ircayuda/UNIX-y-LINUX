@@ -19,7 +19,7 @@ root@anaconda:~ #
 ```
 
 ### Sintaxis: `who (am i)`
-<p>La orden o comando <b>`who`</b> nos informa acerca de quién o quiénes están conectados actualmente al sistema. También muestra información,<br/>
+<p>La orden o comando `who` nos informa acerca de quién o quiénes están conectados actualmente al sistema. También muestra información,<br/>
 en la segunda columna, relativa al terminal asociado a cada usuario, y por último, en la columna tercera, la fecha y hora en la que el usuario entró en sesión.
 </p>
 
@@ -73,7 +73,7 @@ EOT
 ```
 
 ### Sintaxis: `write usuario`
-<p>La orden o comando <b>`write`</b> Se utiliza para comunicarnos con otros usuarios que estén en ese momento conectados a nuestro mismo sistema.<br/>
+<p>La orden o comando `write` Se utiliza para comunicarnos con otros usuarios que estén en ese momento conectados a nuestro mismo sistema.<br/>
 (write) NO funciona para usuarios en sistemas diferentes. `En este EJ. tenemos usuario: luis \ usuario: y2k`<br/>
 El usuario: luis, escribira al usuario y2k. Para que vea el mensaje en el terminal.
 </p>
@@ -84,7 +84,7 @@ Hola y2k, soy Luis! :)
 ```
 
 <p>
-El usuario: `LUIS`, envio un mensaje al usuario `Y2K`. En tiempo real. Ahora veamos como veria el usuario. y2k. el mensaje.
+El usuario: `luis`, envio un mensaje al usuario `y2k`. En tiempo real. Ahora veamos como veria el usuario. y2k. el mensaje.
 </p>
 
 
