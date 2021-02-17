@@ -92,8 +92,6 @@ Message from y2k@anaconda on pts/1 at 13:50 ...
 Hola y2k, soy Luis! :)
 ```
 
-
-
 ### Sintaxis: `mesg [y/n]`
 
 Esta orden se utiliza para modificar los derechos de escritura por parte de los otros usuarios en nuestro terminal.<br/>
@@ -110,3 +108,287 @@ is n
 [y2k@anaconda ~]$
 ```
 
+
+### Sintaxis: `date`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ date
+
+```
+
+
+
+
+### Sintaxis: `echo`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ echo
+
+```
+
+
+
+### Sintaxis: `banner`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ banner
+
+```
+
+
+
+### Sintaxis: `cal`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ cal
+
+```
+
+
+
+### Sintaxis: `uname`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ uname
+
+```
+
+
+
+
+### Sintaxis: `password`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ password
+
+```
+
+
+
+### Sintaxis: `lpr`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ lpr
+
+```
+
+
+
+### Sintaxis: `lp`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ lp
+
+```
+
+### Sintaxis: `script`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ script
+
+```
+
+
+### Sintaxis: `man`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ man
+
+```
+
+
+
+## El sistema de archivos.
+
+Concepto de archivo y de sistema de archivos en UNIX.<br/>
+
+Podemos definir de forma genérica el término archivo como un conjunto de datos con un nombre asociado.<br/>
+Los archivos suelen residir en dispositivos de almacenamiento secundarios, tales como DVD/CD/USB Pen/HDD/SSD. etc.<br/>
+La razón de asignar un nombre a cada archivo es que de este modo tanto los usuarios como los programas pueden hacer referencia a los mismos de una forma lógica.<br/>
+Los procesos o programas en ejecución disponen de un conjunto de funciones proporcionadas por el sistema operativo para poder manipular esos archivos.<br/>
+Ese conjunto de funciones se conoce con el nombre de llamadas al sistema o `system calls.`<br/>
+El concepto de llamada al sistema es más amplio, pues engloba también funciones relacionadas con la manipulación de procesos y dispositivos.
+
+
+## Manipulación de archivos y directorios.
+
+
+### Sintaxis: `ls [-lFaRd] [archivo(s)]`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ ls
+
+```
+
+### Sintaxis: `pwd`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ pwd
+
+```
+
+### Sintaxis: `cd`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ cd
+
+```
+
+### Sintaxis: `mkdir` y `rmdir`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mkdir
+
+```
+
+### Sintaxis: `cat`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ cat
+
+```
+
+
+### Sintaxis: `more`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ more
+
+```
+
+
+
+### Sintaxis: `head` y `tail`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ head
+
+```
+
+
+### Sintaxis: `od`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ od
+
+```
+
+
+### Sintaxis: `cp`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ cp
+
+```
+
+
+### Sintaxis: `mv`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ mv
+
+```
+
+
+### Sintaxis: `ln`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ ln
+
+```
+
+
+### Sintaxis: `rm`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ rm
+
+```
+
+
+### Sintaxis: `file`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ file
+
+```
+
+
+### Sintaxis: `chmod`
+
+Esta orden se 
+
+
+```
+[y2k@anaconda ~]$ chmod
+
+```
