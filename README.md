@@ -406,28 +406,158 @@ Las opciones más comunes de `lp` son:
 
 ```
 
-### Sintaxis: `script`
+### Sintaxis: `script [-a] [archivo]`
 
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ script
-
-```
-
-
-### Sintaxis: `man`
-
-Esta orden se 
+Esta orden se utiliza para almacenar en un archivo todo lo que el usuario teclee a partir del momento en que sea invocada. a si como todo lo que es enviado a la pantalla<br/>
+Para dejar de grabar información en el archivo, tenemos que invocar a la orden exit.<br/>
+Si deseamos guardar todo el contenido de una sesión en un archivo denominado `csesion`.
 
 
 ```
-[y2k@anaconda ~]$ man
+[y2k@anaconda ~/EJ]$ script csesion
+Script started, output file is csesion
+[y2k@anaconda ~/EJ]$ uname -a
+FreeBSD anaconda 12.2-STABLE FreeBSD 12.2-STABLE r369150 GENERIC  amd64
+[y2k@anaconda ~/EJ]$ uptime
+ 5:38p. m.  up  5:43, 1 user, load averages: 0,33 0,21 0,13
+[y2k@anaconda ~/EJ]$ exit
+exit
+
+Script done, output file is csesion
+[y2k@anaconda ~/EJ]$ 
+```
+
+Ahora veamos que a gurdado nuestro archivo creado csesion.
+
+```
+[y2k@anaconda ~/EJ]$ cat csesion 
+Script started on Wed Feb 17 17:38:44 2021
+[y2k@anaconda ~/EJ]$ uname -a
+FreeBSD anaconda 12.2-STABLE FreeBSD 12.2-STABLE r369150 GENERIC  amd64
+[y2k@anaconda ~/EJ]$ uptime
+ 5:38p. m.  up  5:43, 1 user, load averages: 0,33 0,21 0,13
+[y2k@anaconda ~/EJ]$ exit
+exit
+
+Script done on Wed Feb 17 17:38:52 2021
+[y2k@anaconda ~/EJ]$
 
 ```
 
 
+### Sintaxis: `man [sección] [-k] orden`
+
+Todas las órdenes vistas, y las que veremos en los siguientes apartados, están descritas en lo que se conoce como Manual del Programador de UNIX.<br/>
+Dicho manual está dividido en secciones.
+
+ * `Sección 1:` Órdenes y programas de aplicación.
+ * `Sección 2:` Llamadas al sistema.
+ * `Sección 3:` Subrutinas.
+ * `Sección 4:` Dispositivos.
+ * `Sección 5:` Formatos de archivos.
+ * `Sección 6:` Juegos.
+ * `Sección 7:` Miscelánea.
+ * `Sección 8:` Procedimientos de mantenimiento y administración del sistema.
+ 
+ 
+
+```
+[y2k@anaconda ~/EJ]$ man clear
+TPUT(1)                 FreeBSD General Commands Manual                TPUT(1)
+
+NAME
+     tput, clear - terminal capability interface
+
+SYNOPSIS
+     tput [-T term] [attribute ...]
+     clear
+
+DESCRIPTION
+     The tput utility makes terminal-dependent information available to users
+     or shell applications.
+
+     The clear utility executes the
+           tput clear
+     command, ignoring any arguments.
+
+     The only option to tput is:
+
+     -T  The terminal name as specified in the termcap(5) database, for
+         example, "vt100" or "xterm".  If not specified, tput retrieves the
+         "TERM" variable from the environment unless that too is not
+         specified, in which case an error message will be sent to standard
+         error and the error status will be 2.
+
+     The tput utility outputs a string for each attribute that is of type
+     string; a number for each of type integer.  Otherwise, tput exits 0 if
+     the terminal has the capability and 1 if it does not, without further
+     action.
+
+     If an attribute is of type string, and takes arguments (e.g. cursor
+     movement, the termcap "cm" capability) the arguments are taken from the
+     command line immediately following the attribute.
+
+     The following special attributes are available.  The first three use the
+     capabilities of the specified terminal, and only work if compatible with
+     the utility's terminal.
+
+     clear         Clear the screen (the termcap(5) "cl" capability).
+:...skipping...
+TPUT(1)                 FreeBSD General Commands Manual                TPUT(1)
+
+NAME
+     tput, clear - terminal capability interface
+
+SYNOPSIS
+     tput [-T term] [attribute ...]
+     clear
+
+DESCRIPTION
+     The tput utility makes terminal-dependent information available to users
+     or shell applications.
+
+     The clear utility executes the
+           tput clear
+     command, ignoring any arguments.
+
+     The only option to tput is:
+
+     -T  The terminal name as specified in the termcap(5) database, for
+         example, "vt100" or "xterm".  If not specified, tput retrieves the
+         "TERM" variable from the environment unless that too is not
+         specified, in which case an error message will be sent to standard
+         error and the error status will be 2.
+
+     The tput utility outputs a string for each attribute that is of type
+     string; a number for each of type integer.  Otherwise, tput exits 0 if
+     the terminal has the capability and 1 if it does not, without further
+     action.
+
+     If an attribute is of type string, and takes arguments (e.g. cursor
+     movement, the termcap "cm" capability) the arguments are taken from the
+     command line immediately following the attribute.
+
+     The following special attributes are available.  The first three use the
+     capabilities of the specified terminal, and only work if compatible with
+     the utility's terminal.
+
+     clear         Clear the screen (the termcap(5) "cl" capability).
+
+     init          Initialize the terminal (the termcap(5) "is" capability).
+
+     reset         Reset the terminal (the termcap(5) "rs" capability).
+
+     longname      Print the descriptive name of the user's terminal type.
+
+ENVIRONMENT
+     TERM      The terminal name, if set and -T is not used.
+
+EXIT STATUS
+     The exit status of tput is as follows:
+
+[y2k@anaconda ~/EJ]$
+
+```
 
 ## El sistema de archivos.
 
