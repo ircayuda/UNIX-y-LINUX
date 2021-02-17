@@ -653,57 +653,175 @@ Si a `cd` no le indicamos ninguna ruta, volvera al directorio `HOME` del usuario
 
 ### Sintaxis: `mkdir` y `rmdir`
 
-Esta orden se 
+El árbol de directorios de UNIX nos es estático, sino que los usuarios tienen la posibilida de crear sys propios directorios para distribuir mjor su info.<br/>
+Los nuevos directorios no pueden ser creados en cualquier nodo del árbol.<br/>
+La mayoría de las veces, cada usuario sólo podrá crear nuevos directorios a partir de su directorio de inicio o HOME.<br/>
+Des esta manera cada persona personaliza su información sin perjudicar al resto. mkdir (Make Directory).
+
+```
+[y2k@anaconda ~]$ mkdir luis
+[y2k@anaconda ~]$
+```
+Ahora con el directorio o carpeta `luis` creada, podemos entrar a ella con `cd luis`
+
+```
+[y2k@anaconda ~]$ cd luis
+[y2k@anaconda ~/luis]$
+```
+
+Si queremos eliminar el directorio `luis` tendremos que salir de el con `cd ..` o `cd`
 
 
 ```
-[y2k@anaconda ~]$ mkdir
-
+[y2k@anaconda ~/luis]$ cd ..
+[y2k@anaconda ~]$ rmdir luis
+[y2k@anaconda ~]$ cd luis
 ```
 
-### Sintaxis: `cat`
-
-Esta orden se 
-
+Si intentamos entrar al directorio borrado no tendremos acceso y el terminal nos indicara que ese directorio no esta creado.
 
 ```
-[y2k@anaconda ~]$ cat
-
+[y2k@anaconda ~]$ cd luis
+-bash: cd: luis: No such file or directory
+[y2k@anaconda ~]$
 ```
 
+### Sintaxis: `cat [archivo(s)]`
 
-### Sintaxis: `more`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ more
-
-```
-
-
-
-### Sintaxis: `head` y `tail`
-
-Esta orden se 
+La orden `cat` sirve para visualizar el contenido de archivos de texto (ASCII) por la pantalla.<br/>
+Si a `cat` no le pasamos como argumento ningún archivo de texto, entonces leerá caracteres de la entrada estándar (teclado)<br/>
+hasta que pulsemos CTRL-D (^d). Una vez hecho esto, visualizará lo que acabamos de escribir.
 
 
 ```
-[y2k@anaconda ~]$ head
+[y2k@anaconda ~/EJ]$ cat archivo.txt 
+
+EJemplo de comando CAT
+Vemos como muestra la info del archivo.txt indicado!
+[y2k@anaconda ~/EJ]$ 
 
 ```
 
+```
+[y2k@anaconda ~/EJ]$ cat prog.c 
+#include <stdio.h>
 
-### Sintaxis: `od`
+main (int argc, char *argv[])
+{
+int x;
+for (x = 0; x < argc; x++)
+puts(argv[x]);
+}
+[y2k@anaconda ~/EJ]$
+```
 
-Esta orden se 
+### Sintaxis: `more [archivo(s)]`
+
+La orden `more` imprime por pantalla el contenido del archivo de textoque le pasemos como argumento.<br/>
+En este caso y a diferencia de lo que ocurría con `cat` que mostraba todo el archivo de forma continua, la visualización se hace pantalla a pantalla.
 
 
 ```
-[y2k@anaconda ~]$ od
+y2k@anaconda ~/EJ]$ more prog.c 
+/************
+*
+* Programa para EJ de IRCAYUDA
+*
+* Esto es para mostrar la funcion del comando more.
+*
+* En un archivo extenso y que no se quiere imprimir todo.
+*
+*
+*
+* Veamos como el comando more interpreta este archivo.
+*
+*
+* Code by y2k
+*
+**************/
+
+--More--(72%)
 
 ```
+Vemos como indica que el archivo se visualiza en un 72%. Si queremos ver más info de dicho archivo.<br/>
+Utilizaremos la tecla INTRO (ENTER).
+
+
+### Sintaxis: `head [-N] archivo(s)` y `tail [-N] archivo(s)` 
+
+Las órdenes `head` y `tail` se pueden utilizar para vsualizar las primeras `N` líneas o últimas `N` líneas de un archivo de texto, respectivamente.<br/>
+Esto puede ser útil, porque muchas veces no necesitamos visualizar el archivo de texto por completom sino que nos basta con algunas líneas.
+
+
+```
+[y2k@anaconda ~/EJ]$ head -5 prog.c 
+/************
+*
+* Programa para EJ de IRCAYUDA
+*
+* Esto es para mostrar la funcion del comando more.
+[y2k@anaconda ~/EJ]$
+
+```
+
+Vemos como `head` muestra las primeras 5 líneas del archivo indicado.
+
+```
+[y2k@anaconda ~/EJ]$ tail -4 prog.c 
+int x;
+for (x = 0; x < argc; x++)
+puts(argv[x]);
+}
+[y2k@anaconda ~/EJ]$
+```
+Vemos como `tail` muestra las últimas 4 líneas del archivo indicado.
+
+
+### Sintaxis: `od [ -bcdfox ] [archivo(s)]`
+
+La orden `od` (Volcado octal, Octal dump) se utiliza para realizar un volcado, en octal del contenido de un archivo.<br/>
+Si a `od` no se les especifica ningún archivo, leerá de la entrada extándar hasta detectar el final de archivo `Ctrl-d`<br/>
+y despues visualiza lo escrito en octal.
+
+```
+[y2k@anaconda ~/EJ]$ od -c prog.c 
+0000000    /   *   *   *   *   *   *   *   *   *   *   *   *  \n   *  \n
+0000020    *       P   r   o   g   r   a   m   a       p   a   r   a    
+0000040    E   J       d   e       I   R   C   A   Y   U   D   A  \n   *
+0000060   \n   *       E   s   t   o       e   s       p   a   r   a    
+0000100    m   o   s   t   r   a   r       l   a       f   u   n   c   i
+0000120    o   n       d   e   l       c   o   m   a   n   d   o       m
+0000140    o   r   e   .  \n   *  \n   *       E   n       u   n       a
+0000160    r   c   h   i   v   o       e   x   t   e   n   s   o       y
+0000200        q   u   e       n   o       s   e       q   u   i   e   r
+0000220    e       i   m   p   r   i   m   i   r       t   o   d   o   .
+0000240   \n   *  \n   *  \n   *  \n   *       V   e   a   m   o   s    
+0000260    c   o   m   o       e   l       c   o   m   a   n   d   o    
+0000300    m   o   r   e       i   n   t   e   r   p   r   e   t   a    
+0000320    e   s   t   e       a   r   c   h   i   v   o   .  \n   *  \n
+0000340    *  \n   *       C   o   d   e       b   y       y   2   k  \n
+0000360    *  \n   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+0000400    /  \n  \n  \n  \n   #   i   n   c   l   u   d   e       <   s
+0000420    t   d   i   o   .   h   >  \n  \n   m   a   i   n       (   i
+0000440    n   t       a   r   g   c   ,       c   h   a   r       *   a
+0000460    r   g   v   [   ]   )  \n   {  \n   i   n   t       x   ;  \n
+0000500    f   o   r       (   x       =       0   ;       x       <    
+0000520    a   r   g   c   ;       x   +   +   )  \n   p   u   t   s   (
+0000540    a   r   g   v   [   x   ]   )   ;  \n   }  \n                
+0000554
+[y2k@anaconda ~/EJ]$
+
+```
+
+La orden `od` acepta diversas opciones, las  mas comunes son:
+
+ * `-b` Visualiza los bytes como números en código octal.
+ * `-c` Visualiza los bytes como caracteres.
+ * `-d` Visualiza las palabras (16 bits) como números decimales sin signo.
+ * `-f` Visualiza el contenido del archivo como números de forma flotante de (32 bits)
+ * `-o` Visualiza las palabras como números en octal sin signo (opción por defecto).
+ * `-x` Visualiza las palabras en código hexadecimal.
+ 
 
 
 ### Sintaxis: `cp`
