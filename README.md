@@ -28,3 +28,46 @@ root@anaconda:~ # who
 y2k              pts/2        Feb 17 13:27 (192.168.1.200)
 root@anaconda:~ # 
 ```
+
+
+### Sintaxis: mail usuario(s)
+<p> El sistema UNIX/LINUX proporciona un mecanismo de correo electrónico o e-mail que permite envíar mensajes de unos usuarios a otros.<br/>
+Para enviar un mensaje no es necesario que el usuario destinatario esté conectado en ese momento.<br/>
+Ya que toda la correspondencia será depositada en su buzón.
+</p>
+
+```
+[y2k@anaconda ~]$ mail
+No mail for y2k
+[y2k@anaconda ~]$
+```
+
+```
+[y2k@anaconda ~]$ mail --help
+mail: illegal option -- -
+Usage: mail [-dEiInv] [-s subject] [-c cc-addr] [-b bcc-addr] [-F] to-addr ...
+            [-sendmail-option ...]
+       mail [-dEHiInNv] [-F] -f [name]
+       mail [-dEHiInNv] [-F] [-u user]
+       mail [-d] -e [-f name]
+[y2k@anaconda ~]$
+```
+
+
+```
+[luis@anaconda ~]$ mail y2k@localhost
+Subject: Prueba de Mensajeria Mail.
+Hola, Este es un mensaje Test.
+.
+EOT
+[luis@anaconda ~]$
+```
+
+```
+[luis@anaconda ~]$ mail y2k@localhost
+Subject: Prueba de Mensajeria Mail.
+Hola, Este es un mensaje Test.
+.
+EOT
+[luis@anaconda ~]$
+```
