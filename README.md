@@ -74,7 +74,7 @@ EOT
 
 ### Sintaxis: `write usuario`
 <p>La orden o comando `write` Se utiliza para comunicarnos con otros usuarios que estén en ese momento conectados a nuestro mismo sistema.<br/>
-(write) NO funciona para usuarios en sistemas diferentes. `En este EJ. tenemos usuario: luis \ usuario: y2k`<br/>
+(write) NO funciona para usuarios en sistemas diferentes.  `En este EJ. tenemos usuario: luis \ usuario: y2k` <br/>
 El usuario: luis, escribira al usuario y2k. Para que vea el mensaje en el terminal.
 </p>
 
@@ -84,7 +84,7 @@ Hola y2k, soy Luis! :)
 ```
 
 <p>
-El usuario: `luis`, envio un mensaje al usuario `y2k`. En tiempo real. Ahora veamos como veria el usuario. y2k. el mensaje.
+El usuario: `luis` envio un mensaje al usuario `y2k` En tiempo real. Ahora veamos como veria el usuario. y2k. el mensaje.
 </p>
 
 
