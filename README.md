@@ -4,7 +4,7 @@ Comando básicos Unix y Linux.
 
 ## INTRO Información
 
-Vamos a ver a continuación la sintaxis y función de algunas órdenes sencillas con obheto de familiarizarnos con la técnica general utilizada en UNIX para invocar programas.
+Vamos a ver a continuación la sintaxis y función de algunas órdenes sencillas con objeto de familiarizarnos con la técnica general utilizada en UNIX para invocar programas.
 
 
 ### Algunas órdenes para comenzar.
@@ -573,17 +573,50 @@ El concepto de llamada al sistema es más amplio, pues engloba también funcione
 
 ## Manipulación de archivos y directorios.
 
+Vamos a ver seguidamente una serie de órdenes empleadas para manipular archivos y directorios.
+
 
 ### Sintaxis: `ls [-lFaRd] [archivo(s)]`
 
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ ls
+La orden `ls` se utiliza para listar los archivos contenidos en un determinado directorio.<br/>
+Si no le especifica ningún archivo o directorio como argumento en la línea de órdenes, por defecto se visualiza el contenido del directorio de trabajo actual.
 
 ```
+[y2k@anaconda ~/UNIXyLINUX]$ ls
+guia.txt	info.php	intro.html	style.css
+[y2k@anaconda ~/UNIXyLINUX]$
 
+```
+
+```
+[y2k@anaconda ~/UNIXyLINUX]$ ls -l
+total 2
+-rw-r--r--  1 y2k  y2k  7 17 feb.  16:30 guia.txt
+-rw-r--r--  1 y2k  y2k  7 17 feb.  16:30 info.php
+-rw-r--r--  1 y2k  y2k  7 17 feb.  16:30 intro.html
+-rw-r--r--  1 y2k  y2k  7 17 feb.  16:30 style.css
+[y2k@anaconda ~/UNIXyLINUX]$
+```
+
+```
+[y2k@anaconda ~/UNIXyLINUX]$ ls -al
+total 19
+drwxr-xr-x   2 y2k  y2k   6 17 feb.  16:30 .
+drwxr-xr-x  20 y2k  y2k  35 17 feb.  16:48 ..
+-rw-r--r--   1 y2k  y2k   7 17 feb.  16:30 guia.txt
+-rw-r--r--   1 y2k  y2k   7 17 feb.  16:30 info.php
+-rw-r--r--   1 y2k  y2k   7 17 feb.  16:30 intro.html
+-rw-r--r--   1 y2k  y2k   7 17 feb.  16:30 style.css
+[y2k@anaconda ~/UNIXyLINUX]$
+
+```
+
+```
+y2k@anaconda ~/UNIXyLINUX]$ ls -ld /etc
+drwxr-xr-x  25 root  wheel  111 17 feb.  17:06 /etc
+[y2k@anaconda ~/UNIXyLINUX]$
+
+```
 ### Sintaxis: `pwd`
 
 Esta orden se 
