@@ -111,52 +111,197 @@ is n
 
 ### Sintaxis: `date`
 
-Esta orden se 
+La orden `date` informa sobre la fecha y la hora actuales. Para ello, `date` consulta previamente el reloj del hardware del sistema, el cual incrementa su valor a iontervalos regulares de tiempo.<br/>
+Estos intervalos suelen ser pequeños, de manera que pueda obternerse bastante resolución.
+
+```
+[y2k@anaconda ~]$ date --help
+date: illegal option -- -
+usage: date [-jnRu] [-d dst] [-r seconds|file] [-t west] [-v[+|-]val[ymwdHMS]]
+            [-I[date | hours | minutes | seconds]]
+            [-f fmt date | [[[[[cc]yy]mm]dd]HH]MM[.ss]] [+format]
+[y2k@anaconda ~]$
+
+```
+
+```
+[y2k@anaconda ~]$ date +"Son las %r del %d de %h de %y"
+Son las 04:37:04 p. m. del 17 de feb. de 21
+[y2k@anaconda ~]$
+
+```
+
+Son operadores asociados a `%` son:
+    * `r` Hora en formato AM-PM
+    * `d` Día del mes.
+    * `m` Mes
+    * `y` Año
+    * `w` Día de semana
+    * `H` Hora
+    * `M` Minutos
+    * `S` Segundos
+    
+De todas formas, la manera más común de utilizar la orden es la siguiente:
 
 
 ```
 [y2k@anaconda ~]$ date
+miércoles, 17 de febrero de 2021, 16:35:39 CET
+[y2k@anaconda ~]$
 
 ```
 
 
+### Sintaxis: `echo` cadena de caracteres
 
-
-### Sintaxis: `echo`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ echo
-
-```
-
-
-
-### Sintaxis: `banner`
-
-Esta orden se 
+La orden `echo` repide todo lo que le pasemos como parámetro.<br/>
+Esta orden se utiliza mucho dentro de los programas de shell que veremos más adelante, así como para visualizar las variables del intérprete de órdenes.<br/>
+Las variables comentadas las utiliza el propio shell para almacenar valores de configuración e información.
 
 
 ```
-[y2k@anaconda ~]$ banner
+[y2k@anaconda ~]$ echo Esto es para la el canal IRCAyuda @ Undernet.org
+Esto es para la el canal IRCAyuda @ Undernet.org
+[y2k@anaconda ~]$
 
 ```
 
+```
+[y2k@anaconda ~]$ echo $TERM
+xterm-256color
+[y2k@anaconda ~]$
+
+```
+
+```
+[y2k@anaconda ~/EJ]$ echo "Crear un archivo con echo" > archivo.txt ; ls -a
+.		..		archivo.txt
+[y2k@anaconda ~/EJ]$
+
+```
+### Sintaxis: `banner` cadena
+
+La orden `banner` se utiliza para visualizar en letras grandes la cadena que le pasemos como parámetro.<br/>
+Inicialmente, se desarrolló para etiquetar la salida de las impresoras de línea.<br/>
+De esta manera, si varias personas mandan imprimir distintos trabajos, pueden saber dónde<br/>
+comienza el suyo por el hecho de tener una cabecera son su nombre que permitirá distinguirlo de los demás.
+
+```
+[y2k@anaconda ~/EJ]$ banner -w30 hola
+       #                   #
+       #####################
+       #####################
+                  #
+                  ##
+       #############
+       ############
+       #
+           #### 
+         #########
+        ##       ##
+       #           #
+       #          ##
+        ##       ##
+         #########
+           #### 
+       #                   #
+       #####################
+       #####################
+          ##
+        ######  ## 
+       ##    ## ### 
+        #    #     #
+        ##  ##   ## 
+       ########### 
+       ##
+        
+[y2k@anaconda ~/EJ]$ 
+
+```
+
+```
+[y2k@anaconda ~]$ banner --help
+banner: illegal option -- -
+usage: banner [-d] [-t] [-w width] message ...
+[y2k@anaconda ~]$ 
+```
 
 
-### Sintaxis: `cal`
+### Sintaxis: `cal [mes] [año]`
 
-Esta orden se 
+Sin ningún parámetro, `cal` visualiza el calendario correspondiente al mes actual.<br/>
+Si le pasamos como parámetro un año, por ej. 2000. mostrará el calendario completo correspondiente al año en custión.
 
 
 ```
 [y2k@anaconda ~]$ cal
+    Febrero 2021      
+do lu ma mi ju vi sá  
+    1  2  3  4  5  6  
+ 7  8  9 10 11 12 13  
+14 15 16 17 18 19 20  
+21 22 23 24 25 26 27  
+28                    
+                      
+[y2k@anaconda ~]$
 
 ```
 
+```
+[y2k@anaconda ~]$ cal 2000
+                            2000
+       Enero                Febrero                Marzo          
+do lu ma mi ju vi sá  do lu ma mi ju vi sá  do lu ma mi ju vi sá  
+                   1         1  2  3  4  5            1  2  3  4  
+ 2  3  4  5  6  7  8   6  7  8  9 10 11 12   5  6  7  8  9 10 11  
+ 9 10 11 12 13 14 15  13 14 15 16 17 18 19  12 13 14 15 16 17 18  
+16 17 18 19 20 21 22  20 21 22 23 24 25 26  19 20 21 22 23 24 25  
+23 24 25 26 27 28 29  27 28 29              26 27 28 29 30 31     
+30 31                                                             
 
+       Abril                  Mayo                 Junio          
+do lu ma mi ju vi sá  do lu ma mi ju vi sá  do lu ma mi ju vi sá  
+                   1      1  2  3  4  5  6               1  2  3  
+ 2  3  4  5  6  7  8   7  8  9 10 11 12 13   4  5  6  7  8  9 10  
+ 9 10 11 12 13 14 15  14 15 16 17 18 19 20  11 12 13 14 15 16 17  
+16 17 18 19 20 21 22  21 22 23 24 25 26 27  18 19 20 21 22 23 24  
+23 24 25 26 27 28 29  28 29 30 31           25 26 27 28 29 30     
+30                                                                
+
+       Julio                 Agosto              Septiembre       
+do lu ma mi ju vi sá  do lu ma mi ju vi sá  do lu ma mi ju vi sá  
+                   1         1  2  3  4  5                  1  2  
+ 2  3  4  5  6  7  8   6  7  8  9 10 11 12   3  4  5  6  7  8  9  
+ 9 10 11 12 13 14 15  13 14 15 16 17 18 19  10 11 12 13 14 15 16  
+16 17 18 19 20 21 22  20 21 22 23 24 25 26  17 18 19 20 21 22 23  
+23 24 25 26 27 28 29  27 28 29 30 31        24 25 26 27 28 29 30  
+30 31                                                             
+
+      Octubre              Noviembre             Diciembre        
+do lu ma mi ju vi sá  do lu ma mi ju vi sá  do lu ma mi ju vi sá  
+ 1  2  3  4  5  6  7            1  2  3  4                  1  2  
+ 8  9 10 11 12 13 14   5  6  7  8  9 10 11   3  4  5  6  7  8  9  
+15 16 17 18 19 20 21  12 13 14 15 16 17 18  10 11 12 13 14 15 16  
+22 23 24 25 26 27 28  19 20 21 22 23 24 25  17 18 19 20 21 22 23  
+29 30 31              26 27 28 29 30        24 25 26 27 28 29 30  
+                                            31                    
+[y2k@anaconda ~]$
+
+```
+
+```
+[y2k@anaconda ~]$ cal 2 2000
+    Febrero 2000      
+do lu ma mi ju vi sá  
+       1  2  3  4  5  
+ 6  7  8  9 10 11 12  
+13 14 15 16 17 18 19  
+20 21 22 23 24 25 26  
+27 28 29              
+                      
+[y2k@anaconda ~]$
+
+```
 
 ### Sintaxis: `uname`
 
