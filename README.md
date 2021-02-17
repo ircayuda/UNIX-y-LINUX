@@ -619,21 +619,35 @@ drwxr-xr-x  25 root  wheel  111 17 feb.  17:06 /etc
 ```
 ### Sintaxis: `pwd`
 
-Esta orden se 
+Esta orden muestra nuestro directorio de trabajo actual, tal y como indican sus iniciales (Print Working Directory)<br/>
+en forma de camino absoluto. Cuando nos movemos mucho por el árbol de directorios, esta orden es de suma utilidad.
 
 
 ```
-[y2k@anaconda ~]$ pwd
+[y2k@anaconda ~/UNIXyLINUX]$ pwd
+/home/y2k/UNIXyLINUX
+[y2k@anaconda ~/UNIXyLINUX]$
 
 ```
 
-### Sintaxis: `cd`
+### Sintaxis: `cd [directorio]`
 
-Esta orden se 
+La orden `cd` (Change Directory) se emplea para poder movernos de unos directorios a otros.<br/>
+El camino que le pasamos como argumento a cd, tal y como se muestra en la sintaxis.<br/>
+Puede ser un nombre de camino absoluto o relativo.<br/>
+Si a `cd` no le indicamos ninguna ruta, volvera al directorio `HOME` del usuario.
 
 
 ```
-[y2k@anaconda ~]$ cd
+[y2k@anaconda ~]$ cd /usr/ports/irc/undernet-ircu/
+[y2k@anaconda /usr/ports/irc/undernet-ircu]$ cd
+[y2k@anaconda ~]$
+
+```
+
+```
+[y2k@anaconda /usr/ports/irc/undernet-ircu]$ cd ..
+[y2k@anaconda /usr/ports/irc]$
 
 ```
 
