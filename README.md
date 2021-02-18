@@ -1118,144 +1118,42 @@ uid=1002(luis) gid=1002(luis) groups=1002(luis)
  * `-g` Visualiza únicamente el GID (identificador de grupo)
 
  
-### Sintaxis: `su`
+### Sintaxis: `su [-] [usuario]`
 
-Esta orden se 
+La orden `su` (switch user) permite cambiar nuestro identificador de usuario.<br/>
+Cuando se invoca nos pedira la palabra clave (password) Esto no pasara con el usuario Administrador al invocar otro usuario.
 
-
-```
-[y2k@anaconda ~]$ su
 
 ```
+[y2k@anaconda ~/EJ]$ su luis
+Password:
+[luis@anaconda ~]$
 
+[luis@anaconda ~]$ id
+uid=1002(luis) gid=1002(luis) groups=1002(luis)
+[luis@anaconda ~]$
+
+root@anaconda:~ # su y2k
+[y2k@anaconda /root]$
+
+[y2k@anaconda /root]$ id
+uid=1001(y2k) gid=1001(y2k) groups=1001(y2k),0(wheel),5(operator),920(vboxusers)
+[y2k@anaconda /root]$
+
+```
 
 ### Sintaxis: `newgrp`
 
-Esta orden se 
+Esta orden ``newgrp` es similar a la orden `su`, pero en este caso lo que se solicita es el cambio del identificador de grupo.<br/>
+Solo nos podemos cambiar a los grupos permitidos por el administrador del sistema (usuario: root).
 
 
 ```
-[y2k@anaconda ~]$ newgrp
-
-```
-
-
-### Sintaxis: `mdir`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mdir
-
-```
-
-
-### Sintaxis: `mattrib`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mattrib
-
-```
-
-
-### Sintaxis: `mmf`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mmd
-
-```
-
-
-### Sintaxis: `mcopy`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mcopy
-
-```
-
-
-### Sintaxis: `mmove`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mmove
-
-```
-
-
-### Sintaxis: `mrd`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mrd
-
-```
-
-
-### Sintaxis: `mcd`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mcd
-
-```
-
-
-### Sintaxis: `mdel`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mdel
-
-```
-
-
-### Sintaxis: `mformat`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mformat
-
-```
-
-
-### Sintaxis: `mren`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mren
-
-```
-
-
-### Sintaxis: `mtype`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ mtype
+[luis@anaconda ~]$ newgrp vboxusers
+[luis@anaconda ~]$
+
+[luis@anaconda ~]$ id
+uid=1002(luis) gid=1002(luis) groups=1002(luis),920(vboxusers)
+[luis@anaconda ~]$
 
 ```
