@@ -968,61 +968,156 @@ prog.c:      cannot open `prog.c' (No such file or directory)
 ```
 
 
-### Sintaxis: `chmod`
+### Sintaxis: `chmod modo archivo(s)`
 
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ chmod
-
-```
+La orden `chmod` (change mode) va a permitirnos modificar los permisos de un archivo.<br/>
+Para modificar estos permisos tenemos que ser el dueño de dicho archivo. (Esto no aplica para administrador root.)<br/>
+Si no somos el propietario ni el administrador (root) la orden `chmod` fallara.
 
 
-### Sintaxis: `umask`
+MODO            USUARIO         GRUPO           OTROS
+rwxr-xr--       rwx             r-x             r--
+Valor Binario   111             101             100
+Valor Octal     7               5               4
 
-Esta orden se 
+Los valores asociados a `chmod`
 
-
-```
-[y2k@anaconda ~]$ umask
-
-```
-
-
-### Sintaxis: `which`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ which
-
-```
-
-
-### Sintaxis: `whereis`
-
-Esta orden se 
-
+ * `400` Derechos de lectura del usuario.
+ * `200` Derechos de escritura del usuario.
+ * `100` Derechos de ejecución del usuario.
+ * `40` Derechos de lectura del grupo.
+ * `20` Derechos de escritura del grupo. 
+ * `10` Derechos de ejecución del grupo.
+ * `4` Derechos de lectura del resto.
+ * `2` Derechos de escritura del resto.
+ * `1` Derechos de ejecución del resto.
+ 
+ Siguiendo la tabla arriba escrita y queremos obtener la siguiente lista de permiso. `rwxr-xr--`, tendríamos que sumar:
+ 
+ r   w    x    r- x r--
+ |   |    |    |  | |
+400 200  100  40 10 4 
+----------------------
+Resultado de la suma: 754
+      
 
 ```
-[y2k@anaconda ~]$ whereis
-
-```
-
-
-### Sintaxis: `id`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ id
+[y2k@anaconda ~/EJ]$ ls -l
+-rw-r--r--  1 y2k  y2k  362 Feb 17 17:38 EJ-Session
+-rw-r--r--  1 y2k  y2k   78 Feb 17 19:59 archivo.txt
+drwxr-xr-x  2 y2k  y2k    3 Feb 18 10:42 y2kfiles
+[y2k@anaconda ~/EJ]$
 
 ```
 
+```
+[y2k@anaconda ~/EJ]$ chmod 754 EJ-Session 
+[y2k@anaconda ~/EJ]$ ls -l
+total 11
+-rwxr-xr--  1 y2k  y2k  362 Feb 17 17:38 EJ-Session
+-rw-r--r--  1 y2k  y2k   78 Feb 17 19:59 archivo.txt
+drwxr-xr-x  2 y2k  y2k    3 Feb 18 10:42 y2kfiles
+[y2k@anaconda ~/EJ]$
+```
 
+De forma general, las abreviaturas simbólicas que podemos utilizar son las siguientes.
+
+ * `u` Usuario.
+ * `g` Grupo.
+ * `o` Otros.
+ * `+` Añadir Permiso.
+ * `-` Quitar Permiso.
+ 
+### Sintaxis: `umask [máscara]`
+
+Los permisos asignados a un archivo o a un directorio cuando son creados dependen de una variable denominada (user mask)<br/>
+Podemos visualizar dicha variable dando la orden `umask` sin argumentos.<br/>
+El resultado son tres dígitos octales que indican, de izquierda a derecha, el valor de la máscara que determina los permisos iniciales para el propietario,<br/>
+Para el grupo y el resto de usuarios.
+
+ * `666` Valor por defecto
+ * `640` Valor deseado
+ * `026` Argumento de `umask`
+
+
+```
+[y2k@anaconda ~/EJ]$ umask
+0022
+[y2k@anaconda ~/EJ]$
+```
+```
+[y2k@anaconda ~/EJ]$ umask 26
+[y2k@anaconda ~/EJ]$
+```
+
+A partir de ahora todos los nuevos archivos que creemos tendrán los permisos siguientes: <b>rw-r-----</b>
+
+```
+[y2k@anaconda ~/EJ]$ echo "Test Permiso" > luis.txt
+[y2k@anaconda ~/EJ]$ ls -l
+total 4
+-rwxr-xr--  1 y2k  y2k   0 Feb 18 11:59 EJ-Session
+-rw-r--r--  1 y2k  y2k  78 Feb 17 19:59 archivo.txt
+-rw-r-----  1 y2k  y2k  13 Feb 18 12:01 luis.txt   <---
+drwxr-xr-x  2 y2k  y2k   3 Feb 18 10:42 y2kfiles
+[y2k@anaconda ~/EJ]$ 
+```
+
+### Sintaxis: `which archivo(s)`
+
+Esta orden se emplea para buscar en los directorios especificados en el PATH de usuario el archivo quye le especifiquemos.<br/>
+Como resultado, visualizara en forma de camino absoluto el nombre del archivo.
+
+```
+[y2k@anaconda ~/EJ]$ which vi nano pico
+/usr/bin/vi
+/usr/local/bin/nano
+[y2k@anaconda ~/EJ]$
+
+```
+Si el programa especificado en la linea no se encuentra, no mostrara ninguna ruta. En este caso vemos como PICO, no se encuentra en nuestros directorio.
+
+
+### Sintaxis: `whereis [-b] [-m] [-s] orden(es)`
+
+Esta orden `whereis` acepta como parámetro únicamente el nombre de una orden.<br/>
+Devuelve el directorio donde reside dicha orden y la página correspondiente donde se encuentra en el manual.<br/>
+Los FLAGS `-b` `-m` y `-s` se utilizan para limitar la búsqueda a binario, página del manual o código fuente, respectivamente.
+
+```
+[y2k@anaconda ~/EJ]$ whereis vi
+vi: /usr/bin/vi /usr/share/man/man1/vi.1.gz /usr/src/usr.bin/vi
+[y2k@anaconda ~/EJ]$ whereis nano
+nano: /usr/local/bin/nano /usr/local/man/man1/nano.1.gz /usr/ports/editors/nano
+[y2k@anaconda ~/EJ]$ whereis pico
+pico:
+[y2k@anaconda ~/EJ]$
+
+```
+
+
+### Sintaxis: `id [-ug] [usuario]`
+
+La orden `id` devuelve el identificador (númerico) de usuario y de grupo del usuario que le indiquemos.<br/>
+Si no se indica el usuario, `id` muestra la información del usuario que invoca la orden.
+
+
+```
+[y2k@anaconda ~/EJ]$ id
+uid=1001(y2k) gid=1001(y2k) groups=1001(y2k),0(wheel),5(operator),920(vboxusers)
+[y2k@anaconda ~/EJ]$
+
+[y2k@anaconda ~/EJ]$ id luis
+uid=1002(luis) gid=1002(luis) groups=1002(luis)
+[y2k@anaconda ~/EJ]$
+
+```
+ Opciones:
+ 
+ * `-u` Visualiza sólo el UID (identificador de usuario)
+ * `-g` Visualiza únicamente el GID (identificador de grupo)
+
+ 
 ### Sintaxis: `su`
 
 Esta orden se 
