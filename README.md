@@ -846,46 +846,124 @@ prog.c
 Vemos como el archivo se a copiado correctamente en el directorio indicado.
 
 
-### Sintaxis: `mv`
+### Sintaxis: `mv archivo(s) destino`
 
-Esta orden se 
+Esta orden tiene una syntaxis idéntica a `cp`. Con `mv`, lo que hacemos es mover los archivos de un lugar a otro.<br/>
+Como consecuencia, loos archivos origen desaparecerán de su localización inicial.<br/>
+La orden `mv` se puede utilizar para renombrar un archivo.
+
+```
+[y2k@anaconda ~/EJ]$ mv program.c /home/y2k/EJ/y2kfiles/
+[y2k@anaconda ~/EJ]$ ls -a y2kfiles/
+.		..		program.c
+[y2k@anaconda ~/EJ]$
+```
+
+```
+[y2k@anaconda ~/EJ]$ mv programa.c program.c
+[y2k@anaconda ~/EJ]$ ls
+archivo.txt	csesion		program.c	y2kfiles
+[y2k@anaconda ~/EJ]$
+```
+
+### Sintaxis: `ln archivo(s) destino`
+
+La orden `ln` (link) tiene una sintaxis similar a las dos anteriores.<br/>
+Se utiliza para permitir que un mismo archivo aparezca en el sistema de archivos bajo dos nombres diferentes, pero con una única copia.<br/>
+Con `ln` no se hace una copia del archivo origen, solamente se crea otro nombre de archivo que hace referencia al mismo archivo en físico.
 
 
 ```
-[y2k@anaconda ~]$ mv
+[y2k@anaconda ~/EJ]$ ln session EJ-Session
+[y2k@anaconda ~/EJ]$ ls
+EJ-Session	archivo.txt	csesion		session		y2kfiles
+[y2k@anaconda ~/EJ]$
 
 ```
 
+```
+[y2k@anaconda ~/EJ]$ ln --help
+ln: illegal option -- -
+usage: ln [-s [-F] | -L | -P] [-f | -i] [-hnv] source_file [target_file]
+       ln [-s [-F] | -L | -P] [-f | -i] [-hnv] source_file ... target_dir
+       link source_file target_file
+[y2k@anaconda ~/EJ]
+```
 
-### Sintaxis: `ln`
+```
+[y2k@anaconda ~/EJ]$ ln -s csesion luis2k
+[y2k@anaconda ~/EJ]$ ls
+EJ-Session	archivo.txt	csesion		<b>luis2k</b>		session		y2kfiles
+[y2k@anaconda ~/EJ]$
+```
 
-Esta orden se 
+### Sintaxis: `rm [-irf] archivo(s)`
+
+La orden `rm` (remove) se utiliza para borrar archivos. Si alguno de los archivos referenciados no existiera, `rm` nos enviará un mensaje de aviso.<br/>
+Si el archivo no tiene permiso de escritura, aunque seamos el propietario, `rm` nos preguntara si queremos eliminarlo.<br/>
+De otro modo la orden llevará a cabo suy labor silenciosamente, sin enviarnos ningún mensaje.<br/>
+`OJO:` <b>TENEMOS QUE TENER MUCHO CUIDADO CON LO QUE QUEREMOS BORRAR!</b>
 
 
 ```
-[y2k@anaconda ~]$ ln
+[y2k@anaconda ~/EJ]$ ls
+EJ-Session	archivo.txt	csesion		luis2k		session		y2kfiles
+
+[y2k@anaconda ~/EJ]$ rm luis2k 
+
+[y2k@anaconda ~/EJ]$ ls
+EJ-Session	archivo.txt	csesion		session		y2kfiles
+[y2k@anaconda ~/EJ]$
 
 ```
 
+```
+[y2k@anaconda ~/EJ]$ ls
+EJ-Session	archivo.txt	csesion		session		y2kfiles
 
-### Sintaxis: `rm`
+[y2k@anaconda ~/EJ]$ rm -i session 
+remove session? yes
 
-Esta orden se 
+[y2k@anaconda ~/EJ]$ ls
+EJ-Session	archivo.txt	csesion		y2kfiles
+[y2k@anaconda ~/EJ]$
+```
+
+```
+[y2k@anaconda ~/EJ]$ ls
+EJ-Session	archivo.txt	csesion		y2kfiles
+
+[y2k@anaconda ~/EJ]$ rm -rf csesion 
+
+[y2k@anaconda ~/EJ]$ ls
+EJ-Session	archivo.txt	y2kfiles
+[y2k@anaconda ~/EJ]$
+```
+
+Las opciones más comunes de `rm` son:
+
+ * `-f` (force) - Fuerza el borrado de los archivos, incluso si están protegidos contra escritura. (El archivo tiene que ser del usuario que quiera borrar dicho archivo. Esto no aplica en ROOT)
+ * `-i` (interactive) Antes de borrar dicho archivos, `rm` nos preguntara que si realmente queremos borrar el archivo.
+ * `-r` (recuersive)  Con esta opción `rm`  borra los archivos de un directorio de forma recuersiva, es decir, borra todos los posibles archivos localizados en subdirectorios dependientes del directorio especificado.
+
+
+### Sintaxis: `file archivo(s)`
+
+Como hemos indicado anteriormente, UNIX no impone ningún formato especial a sus archivos.<br/>
+El formato depende únicamente de los programas o utilidades que utilizan dicho archivo.<br/>
+La orden `file` intenta darnos información acerca del tipo del archivo que le pasemos como argumento.
 
 
 ```
-[y2k@anaconda ~]$ rm
-
-```
-
-
-### Sintaxis: `file`
-
-Esta orden se 
-
-
-```
-[y2k@anaconda ~]$ file
+[y2k@anaconda ~/EJ]$ file archivo.txt 
+archivo.txt: ASCII text
+[y2k@anaconda ~/EJ]$ file /etc/passwd
+/etc/passwd: ASCII text
+[y2k@anaconda ~/EJ]$ file /etc/passwd assp prog.c
+/etc/passwd: ASCII text
+assp:        cannot open `assp' (No such file or directory)
+prog.c:      cannot open `prog.c' (No such file or directory)
+[y2k@anaconda ~/EJ]$
 
 ```
 
